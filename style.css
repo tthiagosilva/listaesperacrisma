@@ -1,0 +1,195 @@
+:root{
+  /* ✅ Ajuste aqui para os HEX oficiais da CAJU, se você tiver */
+  --caju-green-900:#0b2f1f;   /* verde bem fechado */
+  --caju-green-700:#0f5b3a;   /* verde principal */
+  --caju-green-500:#16a34a;   /* verde destaque */
+  --caju-gold-500:#f6c453;    /* dourado */
+  --caju-gold-600:#eab308;    /* dourado forte */
+
+  --text-900:#0f172a;
+  --text-700:#334155;
+  --muted:#64748b;
+
+  --card-bg:rgba(255,255,255,.96);
+  --border:#e2e8f0;
+  --shadow: 0 22px 44px rgba(0,0,0,.28);
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+
+  /* fundo jovem, “evento/retirada”, com verde CAJU */
+  background:
+    radial-gradient(1200px 600px at 10% 10%, rgba(246,196,83,.25), transparent 55%),
+    radial-gradient(900px 500px at 90% 20%, rgba(22,163,74,.22), transparent 60%),
+    linear-gradient(135deg, var(--caju-green-900), #062016);
+}
+
+.container{
+  width:100%;
+  max-width:440px;
+  background:var(--card-bg);
+  border:1px solid rgba(226,232,240,.7);
+  border-radius:18px;
+  padding:28px 26px;
+  box-shadow:var(--shadow);
+  position:relative;
+  overflow:hidden;
+  animation:fadeIn .55s ease;
+}
+
+/* brilho sutil dourado */
+.container::before{
+  content:"";
+  position:absolute;
+  inset:-120px -120px auto auto;
+  width:260px;
+  height:260px;
+  background: radial-gradient(circle, rgba(246,196,83,.35), transparent 60%);
+  filter: blur(2px);
+  transform: rotate(20deg);
+}
+
+@keyframes fadeIn{
+  from{ opacity:0; transform:translateY(18px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+
+.header{
+  text-align:center;
+  margin-bottom:18px;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:54px;
+  height:54px;
+  border-radius:16px;
+  background: linear-gradient(135deg, rgba(246,196,83,.40), rgba(22,163,74,.18));
+  border:1px solid rgba(234,179,8,.35);
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.header h1{
+  margin:0;
+  font-size:22px;
+  color:var(--text-900);
+  letter-spacing:-0.2px;
+}
+
+.header p{
+  margin:8px 0 0;
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.5;
+}
+
+.message{
+  font-size:14px;
+  color:var(--text-700);
+  line-height:1.65;
+  margin-bottom:18px;
+}
+
+.message strong{ color:var(--text-900); }
+
+.label{
+  display:block;
+  font-size:12px;
+  color:var(--muted);
+  margin:10px 0 6px;
+  font-weight:600;
+}
+
+form input{
+  width:100%;
+  padding:14px 14px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  font-size:15px;
+  background:#fff;
+  transition: box-shadow .15s ease, border-color .15s ease, transform .05s ease;
+}
+
+form input:focus{
+  outline:none;
+  border-color: rgba(22,163,74,.7);
+  box-shadow: 0 0 0 4px rgba(22,163,74,.16);
+}
+
+form button{
+  width:100%;
+  margin-top:14px;
+  padding:14px 14px;
+  border:none;
+  border-radius:14px;
+  color:#0b2f1f;
+  font-size:16px;
+  font-weight:800;
+  cursor:pointer;
+
+  background: linear-gradient(135deg, var(--caju-gold-500), var(--caju-gold-600));
+  box-shadow: 0 14px 26px rgba(234,179,8,.28);
+  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+}
+
+form button:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 34px rgba(234,179,8,.32);
+  filter: saturate(1.05);
+}
+
+form button:disabled{
+  cursor:not-allowed;
+  opacity:.75;
+  transform:none;
+  box-shadow:none;
+}
+
+.status{
+  margin-top:12px;
+  text-align:center;
+  font-weight:600;
+  font-size:14px;
+  min-height:20px;
+}
+
+.status.success{ color: var(--caju-green-700); }
+.status.error{ color: #dc2626; }
+
+.info{
+  margin-top:16px;
+  font-size:12px;
+  color:var(--muted);
+  text-align:center;
+  line-height:1.5;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.logo img {
+  max-width: 300px;
+}
+
+.message.encerrado {
+  background: rgba(22,163,74,.08);
+  border: 1px solid rgba(22,163,74,.25);
+  padding: 16px;
+  border-radius: 14px;
+  text-align: center;
+}
